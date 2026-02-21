@@ -43,3 +43,49 @@ body {
   background: #fff;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 9999;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal {
+  width: min(420px, 100%);
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.modal__title {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.modal__text {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  background: #f6f6f6;
+  font-weight: 700;
+  cursor: pointer;
+}

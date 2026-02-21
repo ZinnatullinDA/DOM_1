@@ -1,3 +1,5 @@
+import Modal from './Modal';
+
 export default class Game {
   constructor(board, goblin, score) {
     this.board = board;
@@ -7,6 +9,8 @@ export default class Game {
     this.intervalId = null;
     this.durationMs = 1000;
     this.maxMisses = 5;
+
+    this.modal = new Modal();
 
     this.onBoardClick = this.onBoardClick.bind(this);
   }
@@ -62,8 +66,13 @@ export default class Game {
   gameOver() {
     this.stop();
     this.goblin.hide();
-    alert(`Game Over!\nОчки: ${this.score.points}`);
-    this.restart();
+
+    this.modal.show({
+      title: 'Игра окончена',
+      text: `Ваш результат: ${this.score.points}`,
+      buttonText: 'Начать заново',
+      onPrimary: () => this.restart(),
+    });
   }
 
   restart() {
